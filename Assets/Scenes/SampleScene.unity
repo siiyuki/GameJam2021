@@ -308,6 +308,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8387584335255192304, guid: 2f726969a2a48f24d919efd5fa9b7839, type: 3}
+      propertyPath: RotateX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387584335255192304, guid: 2f726969a2a48f24d919efd5fa9b7839, type: 3}
+      propertyPath: RotateY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387584335255192304, guid: 2f726969a2a48f24d919efd5fa9b7839, type: 3}
+      propertyPath: SpawnInterval
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8387584335255192305, guid: 2f726969a2a48f24d919efd5fa9b7839, type: 3}
       propertyPath: m_Name
       value: ObjectSpawner
