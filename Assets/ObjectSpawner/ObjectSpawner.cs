@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     public float MaxWidth;
-    public float MaxFallSpeed;
+    public float SpawnInterval;
     public float DestroyHeight;
     public float ObjectMass;
     public float ObjectDrag;
@@ -14,7 +14,6 @@ public class ObjectSpawner : MonoBehaviour
 
     private List<GameObject> spawnObjects = new List<GameObject>();
     private float time = 0;
-    private bool SpawnFlug = true;
 
     void Start()
     {
@@ -24,24 +23,20 @@ public class ObjectSpawner : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-
-        if ((Mathf.Floor(time * 10f) / 10f) % MaxFallSpeed == 0)
+        if (time > SpawnInterval)
         {
-            if (SpawnFlug)
-            {
-                var grand = Random.Range(-(MaxWidth / 2f), MaxWidth / 2f);
-                Spawn(grand);
-                SpawnFlug = false;
-            }
-        }
-        else
-        {
-            SpawnFlug = true;
+            var grand = Random.Range(-(MaxWidth / 2f), MaxWidth / 2f);
+            Spawn(grand, new Vector3(
+                Random.Range(0, 360),
+                Random.Range(0, 360),
+                Random.Range(0, 360)
+                ));
+            time = 0;
         }
         Destroy();
     }
 
-    void Spawn(float x)
+    void Spawn(float x, Vector3 angle)
     {
         var grand = Random.Range(0, Objects.Length);
         var g = Instantiate(Objects[grand]);
@@ -49,6 +44,7 @@ public class ObjectSpawner : MonoBehaviour
         r.mass = ObjectMass;
         r.drag = ObjectDrag;
         r.angularDrag = ObjectAngularDrag;
+        g.transform.eulerAngles = angle;
         g.transform.position = new Vector2(x, transform.position.y);
         g.transform.parent = transform;
         spawnObjects.Add(g);
@@ -58,7 +54,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         for (int i = 0; i < spawnObjects.Count; i++)
         {
-            if (DestroyHeight > spawnObjects[i].transform.localPosition.y)
+            if (-DestroyHeight > spawnObjects[i].transform.localPosition.y)
             {
                 Destroy(spawnObjects[i]);
                 spawnObjects.RemoveAt(i);

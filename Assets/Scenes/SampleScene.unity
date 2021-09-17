@@ -236,13 +236,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxWidth: 5
-  MaxFallSpeed: 2
-  DestroyHeight: -20
+  SpawnInterval: 2.1
+  DestroyHeight: 20
   ObjectMass: 100
   ObjectDrag: 8
   ObjectAngularDrag: 0.05
   Objects:
   - {fileID: 491479246916151466, guid: 85feb81be53a8404eb2b1499dcd931b4, type: 3}
+  - {fileID: 6636013909771408638, guid: fcb7ac4656517e448b1e92a344806eb5, type: 3}
+  - {fileID: 7882090927301271173, guid: 9057d3664f346264ab2e9240cff1a15a, type: 3}
 --- !u!4 &1039655578
 Transform:
   m_ObjectHideFlags: 0
