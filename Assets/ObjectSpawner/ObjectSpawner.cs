@@ -10,6 +10,7 @@ public class ObjectSpawner : MonoBehaviour
     public float ObjectMass;
     public float ObjectDrag;
     public float ObjectAngularDrag;
+    public float StartTime;
     public GameObject[] Objects;
 
     private List<GameObject> spawnObjects = new List<GameObject>();
@@ -17,7 +18,7 @@ public class ObjectSpawner : MonoBehaviour
 
     void Start()
     {
-
+        time = SpawnInterval - StartTime;
     }
 
     void Update()
