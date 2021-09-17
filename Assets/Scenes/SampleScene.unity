@@ -235,13 +235,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41264cf404303f48a72a187c21276f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxWidth: 6
+  MaxWidth: 5
   SpawnInterval: 2.1
   DestroyHeight: 20
   ObjectMass: 100
   ObjectDrag: 8
   ObjectAngularDrag: 0.05
   StartTime: 1
+  RotateX: 1
+  RotateY: 1
+  RotateZ: 1
   Objects:
   - {fileID: 491479246916151466, guid: 85feb81be53a8404eb2b1499dcd931b4, type: 3}
   - {fileID: 6636013909771408638, guid: fcb7ac4656517e448b1e92a344806eb5, type: 3}

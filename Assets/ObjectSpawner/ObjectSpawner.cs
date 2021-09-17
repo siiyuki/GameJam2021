@@ -11,6 +11,7 @@ public class ObjectSpawner : MonoBehaviour
     public float ObjectDrag;
     public float ObjectAngularDrag;
     public float StartTime;
+    public bool RotateX, RotateY, RotateZ;
     public GameObject[] Objects;
 
     private List<GameObject> spawnObjects = new List<GameObject>();
@@ -26,16 +27,13 @@ public class ObjectSpawner : MonoBehaviour
         time += Time.deltaTime;
         if (time > SpawnInterval)
         {
-            var grand = Random.Range(-(MaxWidth / 2f), MaxWidth / 2f);
-            Spawn(grand, new Vector3(
-                Random.Range(0, 360),
-                Random.Range(0, 360),
-                Random.Range(0, 360)
-                ));
-            time = 0;
+            var harf = MaxWidth / 2f; time = 0;
+            Spawn(Random.Range(-harf, harf), new Vector3(randomRad(), randomRad(), randomRad()));
         }
         Destroy();
     }
+
+    float randomRad() => Random.Range(0, 360);
 
     void Spawn(float x, Vector3 angle)
     {
@@ -45,8 +43,11 @@ public class ObjectSpawner : MonoBehaviour
         r.mass = ObjectMass;
         r.drag = ObjectDrag;
         r.angularDrag = ObjectAngularDrag;
-        g.transform.eulerAngles = angle;
         g.transform.position = new Vector2(x, transform.position.y);
+        g.transform.eulerAngles = new Vector3(
+            RotateX ? angle.x : 0,
+            RotateY ? angle.y : 0,
+            RotateZ ? angle.z : 0);
         g.transform.parent = transform;
         spawnObjects.Add(g);
     }
