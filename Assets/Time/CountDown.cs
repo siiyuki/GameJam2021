@@ -27,8 +27,10 @@ public class CountDown : MonoBehaviour
 
 
     //ŽžŠÔØ‚ê‚©‚Ç‚¤‚©‚Ì”»’è@ŽžŠÔØ‚ê‚Åtrue
-    public bool TimeUP = false; 
+    public bool TimeUP = false;
 
+    private float leveltime = 0;
+    public float Cycle;
     void Start()
     {
         totalTime = minute * 60 + seconds;
@@ -73,5 +75,13 @@ public class CountDown : MonoBehaviour
         //oldTime = seconds;//•b‚ª•Ï‚í‚Á‚Ä‚¢‚½‚ç•\Ž¦‚ðXV‚·‚é‚½‚ß•b‚ð•Û‘¶
         oldTime = milli_Sec;
 
+
+        //level change operation
+        leveltime += Time.deltaTime;
+        if (leveltime > Cycle)
+        {
+            GameObject.Find("Leveler").GetComponent<ChangeLevel>().Switch();
+            leveltime = 0;
+        }
     }
 }

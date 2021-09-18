@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 13912017}
   - component: {fileID: 13912016}
   m_Layer: 0
-  m_Name: TestLeveler
+  m_Name: Leveler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,12 +149,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 13912015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf6681e4061ee749be0482d8f78aa3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a96ceeb44d1d8e4596ee440ca83c1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Leveler: {fileID: 3545106369862505717, guid: 9f9be872af7fe8b4bb2c2624ab64068f, type: 3}
-  Cycle: 5
-  localPosition: {x: 0, y: 2, z: -3}
+  localPosition: {x: 0, y: 2.5, z: -2}
 --- !u!4 &13912017
 Transform:
   m_ObjectHideFlags: 0
@@ -266,6 +265,7 @@ MonoBehaviour:
   seconds: 20
   Redtime: 10
   TimeUP: 0
+  Cycle: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
