@@ -263,7 +263,7 @@ MonoBehaviour:
   totalTime: 0
   minute: 0
   seconds: 0
-  Cycle: 10
+  Cycle: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
