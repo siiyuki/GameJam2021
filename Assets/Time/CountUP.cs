@@ -42,7 +42,6 @@ public class CountUP : MonoBehaviour
         if (totalTime <= 0f)
         {
             TimerText.text = "Time UP!!";
-            TimeUP = true;
 
             return;
         }
