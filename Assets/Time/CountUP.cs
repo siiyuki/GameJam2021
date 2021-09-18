@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CountUP : MonoBehaviour
 {
     // Start is called before the first frame update
-    //　トータル制限時間
+    //　トータル時間
     public float totalTime;
     //　制限時間（分）
     [SerializeField]
