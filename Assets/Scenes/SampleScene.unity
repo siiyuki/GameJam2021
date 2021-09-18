@@ -262,8 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalTime: 0
   minute: 0
-  seconds: 20
-  Redtime: 10
+  seconds: 0
+  Redtime: 0
   TimeUP: 0
   Cycle: 10
 --- !u!1 &519420028
