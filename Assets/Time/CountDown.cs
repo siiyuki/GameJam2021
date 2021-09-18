@@ -19,7 +19,7 @@ public class CountDown : MonoBehaviour
     private float milli_Sec;
 
     //時間切れ前に赤くなる
-    public int Redtime;
+    // public int Redtime;
 
     //　前回Update時の秒数
     private float oldTime;
@@ -27,7 +27,11 @@ public class CountDown : MonoBehaviour
 
 
     //時間切れかどうかの判定　時間切れでtrue
+<<<<<<< HEAD
     public bool TimeUP = false;
+=======
+    // public bool TimeUP = false; 
+>>>>>>> 91affd913eae80c58aaff68b25258a5c2ba8e7e3
 
     private float leveltime = 0;
     public float Cycle;
@@ -42,34 +46,34 @@ public class CountDown : MonoBehaviour
     void Update()
     {
         //　制限時間が0秒以下なら何もしない
-        if (totalTime <= 0f)
-        {
-            TimerText.text = "Time UP!!";
-            TimeUP = true;
+        // if (totalTime <= 0f)
+        // {
+        //   TimerText.text = "Time UP!!";
+        //   TimeUP = true;
 
-            return;
-        }
+        //     return;
+        // }
         //　一旦トータルの制限時間を計測；
         totalTime = minute * 60 + seconds;
-        totalTime -= Time.deltaTime;
+        totalTime += Time.deltaTime;
 
         //　再設定
         minute = (int)totalTime / 60;
         seconds = totalTime - minute * 60;
-        milli_Sec = (seconds - (int)seconds * 1)*100;
+        milli_Sec = (seconds - (int)seconds * 1) * 100;
 
         //　タイマー表示用UIテキストに時間を表示する
         if (milli_Sec != oldTime)
         {
 
-                TimerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00") + ":" + ((int)milli_Sec).ToString("00");
-            
+            TimerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00") + ":" + ((int)milli_Sec).ToString("00");
+
         }
 
-        if((int)seconds <= Redtime)
-        {
-            TimerText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f); 
-        }
+        //if ((int)seconds <= Redtime)
+        //{
+        //    TimerText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        //}
 
 
         //oldTime = seconds;//秒が変わっていたら表示を更新するため秒を保存
