@@ -10,7 +10,7 @@ public class Leveler : MonoBehaviour
 
     private float InsideCircleSize = 100;
     private float OutsideCircleSize = 150;
-    private float TextSize = 1;
+    private float TextSize = 0.7f;
     private float RotateSpeed = 100;
     private float AnimationRate = 0.05f;
     private float AnimationLength = 2f;
