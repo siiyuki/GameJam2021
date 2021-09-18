@@ -263,9 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalTime: 0
   minute: 0
-  seconds: 20
-  Redtime: 10
-  TimeUP: 0
+  seconds: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
