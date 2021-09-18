@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class CountUP : MonoBehaviour
+public class CountDown : MonoBehaviour
 {
     // Start is called before the first frame update
     //　トータル制限時間
@@ -31,8 +31,7 @@ public class CountUP : MonoBehaviour
 
     void Start()
     {
-        //totalTime = minute * 60 + seconds;
-        totalTime = 0f;
+        totalTime = minute * 60 + seconds;
         oldTime = 0f;
         TimerText = GetComponentInChildren<Text>();
     }
@@ -41,16 +40,16 @@ public class CountUP : MonoBehaviour
     void Update()
     {
         //　制限時間が0秒以下なら何もしない
-       // if (totalTime <= 0f)
-       // {
-            //TimerText.text = "Time UP!!";
-            //TimeUP = true;
+        if (totalTime <= 0f)
+        {
+            TimerText.text = "Time UP!!";
+            TimeUP = true;
 
-           // return;
-      //  }
+            return;
+        }
         //　一旦トータルの制限時間を計測；
         totalTime = minute * 60 + seconds;
-        totalTime += Time.deltaTime;
+        totalTime -= Time.deltaTime;
 
         //　再設定
         minute = (int)totalTime / 60;
@@ -65,10 +64,10 @@ public class CountUP : MonoBehaviour
             
         }
 
-        //if((int)seconds <= Redtime)
-        //{
-        //    TimerText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f); 
-       // }
+        if((int)seconds <= Redtime)
+        {
+            TimerText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f); 
+        }
 
 
         //oldTime = seconds;//秒が変わっていたら表示を更新するため秒を保存
