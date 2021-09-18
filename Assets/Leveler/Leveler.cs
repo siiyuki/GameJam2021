@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class Leveler : MonoBehaviour
 {
-    public int Level;
+    public string Level;
     public GameObject Circle;
 
-    private float InsideCircleSize = 100;
-    private float OutsideCircleSize = 150;
-    private float TextSize = 0.7f;
+    private float InsideCircleSize = 80;
+    private float OutsideCircleSize = 130;
+    private float TextSize = 0.6f;
     private float RotateSpeed = 100;
     private float AnimationRate = 0.05f;
     private float AnimationLength = 2f;
@@ -36,7 +36,7 @@ public class Leveler : MonoBehaviour
         LevelText = LevelObject.GetComponent<Text>();
         TextSize *= 0.01f;
         TextMaxSize = TextSize * 5f;
-        LevelText.text = Level.ToString();
+        LevelText.text = Level;
         LevelText.color = new Color(0, 0, 0, 0);
         LevelObject.transform.localScale = new Vector3(TextMaxSize, TextMaxSize, TextMaxSize);
 

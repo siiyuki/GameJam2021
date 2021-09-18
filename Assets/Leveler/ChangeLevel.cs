@@ -7,7 +7,11 @@ public class ChangeLevel : MonoBehaviour
     public GameObject Leveler;
     public Vector3 localPosition;
 
+    public float SpawnIntervalLevelRate;
+    public float ObjectDragLevelRate;
+
     private ObjectSpawner ob;
+
     private float StartSpawnInterval;
     private float StartObjectDrag;
 
@@ -18,18 +22,15 @@ public class ChangeLevel : MonoBehaviour
         ob = GameObject.Find("ObjectSpawner").GetComponent<ObjectSpawner>();
         StartSpawnInterval = ob.SpawnInterval;
         StartObjectDrag = ob.ObjectDrag;
-
     }
 
     public void Switch()
     {
-        if(ob.SpawnInterval != 0)
-        {
-            ob.SpawnInterval = StartSpawnInterval - (NowLevel / 10f);
-        }
-        ob.ObjectDrag = StartObjectDrag - (NowLevel / 1f);
         var g = Instantiate(Leveler);
-        g.GetComponent<Leveler>().Level = ++NowLevel;
+        var sval = StartSpawnInterval - ((StartSpawnInterval / SpawnIntervalLevelRate) * NowLevel);
+        ob.SpawnInterval = sval > 0 ? sval : 0.1f;
+        ob.ObjectDrag = StartObjectDrag - ((StartObjectDrag / ObjectDragLevelRate) * NowLevel);
+        g.GetComponent<Leveler>().Level = (++NowLevel).ToString();
         g.transform.parent = transform;
         g.transform.localPosition = localPosition;
     }
