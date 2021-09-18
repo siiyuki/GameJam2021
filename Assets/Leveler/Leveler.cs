@@ -14,7 +14,7 @@ public class Leveler : MonoBehaviour
     private float RotateSpeed = 100;
     private float AnimationRate = 0.05f;
     private float AnimationLength = 2f;
-    private float AnimationDelayLength = 0.5f;
+    private float AnimationDelayLength = 0.1f;
 
     private GameObject InsideObject;
     private GameObject OutsideObject;
