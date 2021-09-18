@@ -18,9 +18,6 @@ public class CountUP : MonoBehaviour
     //[SerializeField]
     private float milli_Sec;
 
-    //時間切れ前に赤くなる
-    public int Redtime;
-
     //　前回Update時の秒数
     private float oldTime;
     private Text TimerText;
@@ -38,16 +35,9 @@ public class CountUP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //　制限時間が0秒以下なら何もしない
-        if (totalTime <= 0f)
-        {
-            TimerText.text = "Time UP!!";
-
-            return;
-        }
         //　一旦トータルの制限時間を計測；
         totalTime = minute * 60 + seconds;
-        totalTime -= Time.deltaTime;
+        totalTime += Time.deltaTime;
 
         //　再設定
         minute = (int)totalTime / 60;
@@ -57,20 +47,11 @@ public class CountUP : MonoBehaviour
         //　タイマー表示用UIテキストに時間を表示する
         if (milli_Sec != oldTime)
         {
-
-                TimerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00") + ":" + ((int)milli_Sec).ToString("00");
-            
+            TimerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00") + ":" + ((int)milli_Sec).ToString("00");
         }
-
-        if((int)seconds <= Redtime)
-        {
-            TimerText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f); 
-        }
-
 
         //oldTime = seconds;//秒が変わっていたら表示を更新するため秒を保存
         oldTime = milli_Sec;
-
 
         //level change operation
         leveltime += Time.deltaTime;
