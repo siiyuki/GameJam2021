@@ -262,14 +262,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalTime: 0
   minute: 0
-<<<<<<< HEAD
   seconds: 20
   Redtime: 10
   TimeUP: 0
   Cycle: 10
-=======
-  seconds: 0
->>>>>>> 91affd913eae80c58aaff68b25258a5c2ba8e7e3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
