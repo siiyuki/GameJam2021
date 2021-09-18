@@ -14,6 +14,7 @@ public class Leveler : MonoBehaviour
     private float RotateSpeed = 100;
     private float AnimationRate = 0.05f;
     private float AnimationLength = 2f;
+    private float Transparency = 0.5f;
     private float AnimationDelayLength = 0.1f;
 
     private GameObject InsideObject;
@@ -60,7 +61,7 @@ public class Leveler : MonoBehaviour
         {
             InsideObject.CircleSet(
                 Mathf.Lerp(nowSize, InsideCircleSize, AnimationRate), 
-                Mathf.Lerp(nowTran, 1f, AnimationRate));
+                Mathf.Lerp(nowTran, Transparency, AnimationRate));
         }
         else
         {
@@ -78,7 +79,7 @@ public class Leveler : MonoBehaviour
             {
                 OutsideObject.CircleSet(
                     Mathf.Lerp(nowSize, OutsideCircleSize, AnimationRate), 
-                    Mathf.Lerp(nowTran, 1f, AnimationRate));
+                    Mathf.Lerp(nowTran, Transparency, AnimationRate));
             }
             else
             {
@@ -96,7 +97,7 @@ public class Leveler : MonoBehaviour
             {
                 LevelObject.TextSet(
                     Mathf.Lerp(nowSize, TextSize, AnimationRate * 0.8f),
-                    Mathf.Lerp(nowTran, 1f, AnimationRate * 0.5f));
+                    Mathf.Lerp(nowTran, Transparency, AnimationRate * 0.5f));
             }
             else
             {
