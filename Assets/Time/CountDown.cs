@@ -6,7 +6,7 @@ public class CountDown : MonoBehaviour
 {
     // Start is called before the first frame update
     //　トータル制限時間
-    private float totalTime;
+    public float totalTime;
     //　制限時間（分）
     [SerializeField]
     private int minute;
@@ -17,6 +17,9 @@ public class CountDown : MonoBehaviour
     //　制限時間（ミリ）
     //[SerializeField]
     private float milli_Sec;
+
+    //時間切れ前に赤くなる
+    public int Redtime;
 
     //　前回Update時の秒数
     private float oldTime;
@@ -56,13 +59,16 @@ public class CountDown : MonoBehaviour
         //　タイマー表示用UIテキストに時間を表示する
         if (milli_Sec != oldTime)
         {
-           // if ((int)seconds != (int)oldTime)
-           // {
-                // TimerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00");
+
                 TimerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00") + ":" + ((int)milli_Sec).ToString("00");
-            //TimerText.text = minute.ToString("00") + ":" + seconds.ToString("00");
-            //TimerText.text = minute.ToString("00") + ":" + seconds.ToString("00") + ":" + milli_Sec;
+            
         }
+
+        if((int)seconds <= Redtime)
+        {
+            TimerText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f); 
+        }
+
 
         //oldTime = seconds;//秒が変わっていたら表示を更新するため秒を保存
         oldTime = milli_Sec;

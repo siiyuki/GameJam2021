@@ -723,6 +723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecc66821b73404478ef6cd259b4cb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalTime: 0
   minute: 0
   seconds: 20
+  Redtime: 10
   TimeUP: 0
