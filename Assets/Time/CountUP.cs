@@ -25,10 +25,6 @@ public class CountUP : MonoBehaviour
     private float oldTime;
     private Text TimerText;
 
-
-    //時間切れかどうかの判定　時間切れでtrue
-    public bool TimeUP = false;
-
     private float leveltime = 0;
     public float Cycle;
     void Start()
@@ -43,16 +39,16 @@ public class CountUP : MonoBehaviour
     void Update()
     {
         //　制限時間が0秒以下なら何もしない
-       // if (totalTime <= 0f)
-       // {
-            //TimerText.text = "Time UP!!";
-            //TimeUP = true;
+        if (totalTime <= 0f)
+        {
+            TimerText.text = "Time UP!!";
+            TimeUP = true;
 
-           // return;
-      //  }
+            return;
+        }
         //　一旦トータルの制限時間を計測；
         totalTime = minute * 60 + seconds;
-        totalTime += Time.deltaTime;
+        totalTime -= Time.deltaTime;
 
         //　再設定
         minute = (int)totalTime / 60;
@@ -67,10 +63,10 @@ public class CountUP : MonoBehaviour
             
         }
 
-        //if((int)seconds <= Redtime)
-        //{
-        //    TimerText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f); 
-       // }
+        if((int)seconds <= Redtime)
+        {
+            TimerText.color = new Color(1.0f, 0.0f, 0.0f, 1.0f); 
+        }
 
 
         //oldTime = seconds;//秒が変わっていたら表示を更新するため秒を保存
