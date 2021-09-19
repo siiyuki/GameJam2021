@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChangeLevel : MonoBehaviour
 {
     public GameObject Leveler;
-    public Vector3 localPosition;
 
     public float SpawnIntervalLevelRate;
     public float ObjectDragLevelRate;
@@ -32,6 +31,6 @@ public class ChangeLevel : MonoBehaviour
         ob.ObjectDrag = StartObjectDrag - ((StartObjectDrag / ObjectDragLevelRate) * NowLevel);
         g.GetComponent<Leveler>().Level = (++NowLevel).ToString();
         g.transform.parent = transform;
-        g.transform.localPosition = localPosition;
+        g.transform.localPosition = Vector3.zero;
     }
 }
