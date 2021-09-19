@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public float レベルアップのインターバル;
     public float 足場が落ちるまでの時間;
+    public float タイマー開始時間;
     public float スポナー横幅;
     public float スポナー初めのインターバル;
     public float スポナー初めの抗力;
@@ -22,9 +23,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-
-        GameObject.Find("TimeCanvas").GetComponent<CountUP>().Cycle = レベルアップのインターバル;
         GameObject.Find("StartBase").GetComponent<StartBase>().brakeTime = 足場が落ちるまでの時間;
+        var tc = GameObject.Find("TimeCanvas").GetComponent<CountUP>();
+        tc.Cycle = レベルアップのインターバル;
+        tc.StartTime = タイマー開始時間;
         var os = GameObject.Find("ObjectSpawner").GetComponent<ObjectSpawner>();
         os.MaxWidth = スポナー横幅;
         os.SpawnInterval = スポナー初めのインターバル;

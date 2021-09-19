@@ -25,6 +25,8 @@ public class CountUP : MonoBehaviour
 
     private float leveltime = 0;
     public float Cycle;
+    private float StartTimeBuffer = 0;
+    public float StartTime;
     void Start()
     {
         //totalTime = minute * 60 + seconds;
@@ -37,31 +39,38 @@ public class CountUP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //　一旦トータルの制限時間を計測；
-        totalTime = minute * 60 + seconds;
-        totalTime += Time.deltaTime;
-
-        //　再設定
-        minute = (int)totalTime / 60;
-        seconds = totalTime - minute * 60;
-        milli_Sec = (seconds - (int)seconds * 1)*100;
-
-        //　タイマー表示用UIテキストに時間を表示する
-        if (milli_Sec != oldTime)
+        if (StartTimeBuffer > StartTime)
         {
-            TimerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00") + ":" + ((int)milli_Sec).ToString("00");
+            //　一旦トータルの制限時間を計測；
+            totalTime = minute * 60 + seconds;
+            totalTime += Time.deltaTime;
+
+            //　再設定
+            minute = (int)totalTime / 60;
+            seconds = totalTime - minute * 60;
+            milli_Sec = (seconds - (int)seconds * 1) * 100;
+
+            //　タイマー表示用UIテキストに時間を表示する
+            if (milli_Sec != oldTime)
+            {
+                TimerText.text = minute.ToString("00") + ":" + ((int)seconds).ToString("00") + ":" + ((int)milli_Sec).ToString("00");
+            }
+
+            //oldTime = seconds;//秒が変わっていたら表示を更新するため秒を保存
+            oldTime = milli_Sec;
+
+            //level change operation
+            leveltime += Time.deltaTime;
+            LevelerText.text = (Cycle - leveltime).ToString("000.000") + "/s to level up";
+            if (leveltime > Cycle)
+            {
+                GameObject.Find("Leveler").GetComponent<ChangeLevel>().Switch();
+                leveltime = 0;
+            }
         }
-
-        //oldTime = seconds;//秒が変わっていたら表示を更新するため秒を保存
-        oldTime = milli_Sec;
-
-        //level change operation
-        leveltime += Time.deltaTime;
-        LevelerText.text = (Cycle - leveltime).ToString("000.000") + "/s to level up";
-        if (leveltime > Cycle)
+        else
         {
-            GameObject.Find("Leveler").GetComponent<ChangeLevel>().Switch();
-            leveltime = 0;
+            StartTimeBuffer += Time.deltaTime;
         }
     }
 }
