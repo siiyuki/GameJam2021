@@ -21,6 +21,7 @@ public class CountUP : MonoBehaviour
     //Å@ëOâÒUpdateéûÇÃïbêî
     private float oldTime;
     private Text TimerText;
+    private Text LevelerText;
 
     private float leveltime = 0;
     public float Cycle;
@@ -29,7 +30,8 @@ public class CountUP : MonoBehaviour
         //totalTime = minute * 60 + seconds;
         totalTime = 0f;
         oldTime = 0f;
-        TimerText = GetComponentInChildren<Text>();
+        TimerText = GameObject.Find("TimerText").GetComponent<Text>();
+        LevelerText = GameObject.Find("LevelerCountText").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -55,6 +57,7 @@ public class CountUP : MonoBehaviour
 
         //level change operation
         leveltime += Time.deltaTime;
+        LevelerText.text = (Cycle - leveltime).ToString("000.000") + "/s to level up";
         if (leveltime > Cycle)
         {
             GameObject.Find("Leveler").GetComponent<ChangeLevel>().Switch();
