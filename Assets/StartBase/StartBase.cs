@@ -7,6 +7,8 @@ public class StartBase : MonoBehaviour
     public float brakeTime;
 
     private float time;
+
+    private bool Flug = true;
     void Start()
     {
         
@@ -15,9 +17,10 @@ public class StartBase : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time > brakeTime)
+        if (time > brakeTime && Flug)
         {
             gameObject.AddComponent<Rigidbody>();
+            Flug = false;
         }
         if (time > brakeTime + 3f)
         {
