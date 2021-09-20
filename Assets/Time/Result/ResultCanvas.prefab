@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 9177725990031194482}
   - component: {fileID: 9177725990031194483}
   m_Layer: 0
-  m_Name: Back
+  m_Name: ResultBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,7 +597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54889b1714541d048aabe55779f12af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  result: {fileID: 0}
   count: 0
   ShowObject: 3
   WaitTime: 1
