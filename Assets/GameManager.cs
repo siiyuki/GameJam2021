@@ -4,47 +4,50 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float レベルアップのインターバル;
-    public float 足場が落ちるまでの時間;
-    public float タイマー開始時間;
-    public float スポナー横幅;
-    public float スポナー初めのインターバル;
-    public float スポナー初めの抗力;
-    public float スポナー削除の縦幅;
-    public float スポナーオブジェクトの重さ;
-    public float スポナー回転効力;
-    public float スポナー開始時間;
-    public bool スポナースポーン時回転X; 
-    public bool スポナースポーン時回転Y; 
-    public bool スポナースポーン時回転Z;
-    public float レベラー目標レベル値;
-    public float レベラー目標抗力値;
-    public KeyCode 操作キー上, 操作キー右, 操作キー下, 操作キー左;
+    public static float LevelUpCycle = 20;
+    public static float BrakeGroundTime = 8;
+    public static float TimerStartTime = 1;
+    public static float SpawnerWidth = 4;
+    public static float SpawnInterval = 2.5f;
+    public static float ObjectDrag = 8;
+    public static float DestroyHeight = 15;
+    public static float ObjectMass = 100;
+    public static float ObjectAngularDrag = 0.05f;
+    public static float SpawnerStartTime = 0;
+    public static bool SpawnRotateX = false;
+    public static bool SpawnRotateY = false;
+    public static bool SpawnRotateZ = true;
+    public static float SpawnIntervalLevelRate = 120;
+    public static float ObjectDragLevelRate = 100;
+    public static KeyCode Up = KeyCode.Space;
+    public static KeyCode Right = KeyCode.D;
+    public static KeyCode Down = KeyCode.S;
+    public static KeyCode Left = KeyCode.A;
 
     private void Awake()
     {
-        GameObject.Find("StartBase").GetComponent<StartBase>().brakeTime = 足場が落ちるまでの時間;
+        GameObject.Find("StartBase").GetComponent<StartBase>().brakeTime = BrakeGroundTime;
         var tc = GameObject.Find("TimeCanvas").GetComponent<CountUP>();
-        tc.Cycle = レベルアップのインターバル;
-        tc.StartTime = タイマー開始時間;
+        tc.Cycle = LevelUpCycle;
+        tc.StartTime = TimerStartTime;
         var os = GameObject.Find("ObjectSpawner").GetComponent<ObjectSpawner>();
-        os.MaxWidth = スポナー横幅;
-        os.SpawnInterval = スポナー初めのインターバル;
-        os.DestroyHeight = スポナー削除の縦幅;
-        os.ObjectMass = スポナーオブジェクトの重さ;
-        os.ObjectDrag = スポナー初めの抗力;
-        os.ObjectAngularDrag = スポナー回転効力;
-        os.StartTime = スポナー開始時間;
-        os.RotateX = スポナースポーン時回転X;
-        os.RotateY = スポナースポーン時回転Y;
-        os.RotateZ = スポナースポーン時回転Z;
+        os.MaxWidth = SpawnerWidth;
+        os.SpawnInterval = SpawnInterval;
+        os.DestroyHeight = DestroyHeight;
+        os.ObjectMass = ObjectMass;
+        os.ObjectDrag = ObjectDrag;
+        os.ObjectAngularDrag = ObjectAngularDrag;
+        os.StartTime = SpawnerStartTime;
+        os.RotateX = SpawnRotateX;
+        os.RotateY = SpawnRotateY;
+        os.RotateZ = SpawnRotateZ;
         var l = GameObject.Find("Leveler").GetComponent<ChangeLevel>();
-        l.SpawnIntervalLevelRate = レベラー目標レベル値;
-        l.ObjectDragLevelRate = レベラー目標抗力値;
+        l.SpawnIntervalLevelRate = SpawnIntervalLevelRate;
+        l.ObjectDragLevelRate = ObjectDragLevelRate;
         var m = GameObject.Find("GamePlayerObject").GetComponent<Move>();
-        m.UP = 操作キー上;
-        m.Right = 操作キー右;
-        m.Left = 操作キー左;
-        m.Down = 操作キー下;
+        m.UP = Up;
+        m.Right = Right;
+        m.Left = Left;
+        m.Down = Down;
     }
 }
