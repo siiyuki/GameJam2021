@@ -326,6 +326,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a73f921b67a7546a3c4ffc9e155a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  "\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7\u306E\u30A4\u30F3\u30BF\u30FC\u30D0\u30EB": 10
+  "\u8DB3\u5834\u304C\u843D\u3061\u308B\u307E\u3067\u306E\u6642\u9593": 8
+  "\u30BF\u30A4\u30DE\u30FC\u958B\u59CB\u6642\u9593": 1
+  "\u30B9\u30DD\u30CA\u30FC\u6A2A\u5E45": 4
+  "\u30B9\u30DD\u30CA\u30FC\u521D\u3081\u306E\u30A4\u30F3\u30BF\u30FC\u30D0\u30EB": 2.5
+  "\u30B9\u30DD\u30CA\u30FC\u521D\u3081\u306E\u6297\u529B": 8
+  "\u30B9\u30DD\u30CA\u30FC\u524A\u9664\u306E\u7E26\u5E45": 15
+  "\u30B9\u30DD\u30CA\u30FC\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u306E\u91CD\u3055": 100
+  "\u30B9\u30DD\u30CA\u30FC\u56DE\u8EE2\u52B9\u529B": 0.05
+  "\u30B9\u30DD\u30CA\u30FC\u958B\u59CB\u6642\u9593": 1
+  "\u30B9\u30DD\u30CA\u30FC\u30B9\u30DD\u30FC\u30F3\u6642\u56DE\u8EE2X": 0
+  "\u30B9\u30DD\u30CA\u30FC\u30B9\u30DD\u30FC\u30F3\u6642\u56DE\u8EE2Y": 0
+  "\u30B9\u30DD\u30CA\u30FC\u30B9\u30DD\u30FC\u30F3\u6642\u56DE\u8EE2Z": 1
+  "\u30EC\u30D9\u30E9\u30FC\u76EE\u6A19\u30EC\u30D9\u30EB\u5024": 120
+  "\u30EC\u30D9\u30E9\u30FC\u76EE\u6A19\u6297\u529B\u5024": 100
+  "\u64CD\u4F5C\u30AD\u30FC\u4E0A": 32
+  "\u64CD\u4F5C\u30AD\u30FC\u53F3": 100
+  "\u64CD\u4F5C\u30AD\u30FC\u4E0B": 115
+  "\u64CD\u4F5C\u30AD\u30FC\u5DE6": 97
+>>>>>>> 41bc34d32562cad86bb8fea91ade1bf2e7199d1f
 --- !u!1 &394964486
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +681,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &540938775
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +870,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560743190}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> 41bc34d32562cad86bb8fea91ade1bf2e7199d1f
 --- !u!1 &567952824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1140,11 @@ MonoBehaviour:
   totalTime: 0
   minute: 0
   seconds: 0
+<<<<<<< HEAD
+=======
+  Cycle: 0
+  StartTime: 0
+>>>>>>> 41bc34d32562cad86bb8fea91ade1bf2e7199d1f
 --- !u!114 &855746415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2179,12 +2209,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2017365672}
   - component: {fileID: 2017365671}
-  - component: {fileID: 2017365670}
-  - component: {fileID: 2017365669}
   - component: {fileID: 2017365668}
   - component: {fileID: 2017365667}
+  - component: {fileID: 2017365670}
+  - component: {fileID: 2017365669}
   m_Layer: 0
-  m_Name: STOP
+  m_Name: GamePlayerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2223,54 +2253,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scroll: 10
   flap: 6
+  UP: 0
+  Right: 0
+  Left: 0
+  Down: 0
   Jump_Sec: {fileID: 294600303}
---- !u!50 &2017365669
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!65 &2017365669
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017365666}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &2017365670
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017365666}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
-    newSize: {x: 10, y: 10}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10}
-  m_EdgeRadius: 0
+  m_Size: {x: 5, y: 8, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2017365670
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017365666}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0.1
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!212 &2017365671
 SpriteRenderer:
   m_ObjectHideFlags: 0
