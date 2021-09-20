@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public bool スポナースポーン時回転Z;
     public float レベラー目標レベル値;
     public float レベラー目標抗力値;
-    public KeyCode 操作キー上, 操作キー右, 操作キー下, 操作キー左, 操作キージャンプ;
+    public KeyCode 操作キー上, 操作キー右, 操作キー下, 操作キー左;
 
     private void Awake()
     {
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         l.SpawnIntervalLevelRate = レベラー目標レベル値;
         l.ObjectDragLevelRate = レベラー目標抗力値;
         var m = GameObject.Find("GamePlayerObject").GetComponent<Move>();
-        m.UP = 操作キージャンプ;
+        m.UP = 操作キー上;
         m.Right = 操作キー右;
         m.Left = 操作キー左;
         m.Down = 操作キー下;
