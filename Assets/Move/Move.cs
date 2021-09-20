@@ -16,12 +16,10 @@ public class Move : MonoBehaviour
     private int MaxJump = 2;
     AudioSource JumpSE;
 
-    
-
-    public KeyCode UP;
-    public KeyCode Right;
-    public KeyCode Left;
-    public KeyCode Down;
+    public KeyCode UP = KeyCode.W;
+    public KeyCode Right = KeyCode.D;
+    public KeyCode Left = KeyCode.A;
+    public KeyCode Down = KeyCode.S;
 
     //アニメーターと二段ジャンプ用の子オブジェクトの宣言
     Animator animator;
