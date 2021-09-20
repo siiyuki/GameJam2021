@@ -34,7 +34,8 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(UP))
+        
+        if(Get.KeyDown(UP))
         {
             if(jumpcount <= MaxJump)
             {
@@ -54,7 +55,7 @@ public class Move : MonoBehaviour
                 jumpcount++;
             }
         }
-        else if (Input.GetKey(Right))//‰¡ˆÚ“®
+        else if (Get.Key(Right))//‰¡ˆÚ“®
         {
             animator.SetBool("Right", true);
             animator.SetBool("Walk", true);
@@ -63,7 +64,7 @@ public class Move : MonoBehaviour
             
 
         }
-        else if (Input.GetKey(Left))
+        else if (Get.Key(Left))
         {
             animator.SetBool("Right", false);
             animator.SetBool("Walk", true);
@@ -73,7 +74,7 @@ public class Move : MonoBehaviour
         }
 
         //’…’nˆÚ“®i‰ºˆÚ“®j
-        else if (Input.GetKey(Down))
+        else if (Get.Key(Down))
         {
             rb2d.AddForce(Vector2.down * 5.0f);
         }
@@ -83,7 +84,7 @@ public class Move : MonoBehaviour
         }
 
         //Ž~‚Ü‚Á‚Ä‚¢‚é‚Æ‚«
-        if (Input.GetKeyUp(Right) || Input.GetKeyUp(Left))
+        if (Get.KeyUp(Right) || Get.KeyUp(Left))
         {
             animator.SetBool("Walk", false);
         }

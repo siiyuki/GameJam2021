@@ -19,6 +19,7 @@ public class Starter : MonoBehaviour
         GameObject.Find("StartBase").GetComponent<StartBase>().brakeTime = CountDown + 8f;
         if (CountDown < ShowCountMax)
             Debug.LogError("ShowCountMax cannot be less than CountDown.");
+        Get.Set = false;
     }
 
     void Start()
@@ -35,6 +36,7 @@ public class Starter : MonoBehaviour
 
         if (time <= 0)
         {
+            Get.Set = true;
             starterText.color = new Color(1, 1, 1, 0);
             var gf = BackgroundBlur.material.GetFloat("_Blur");
             BackgroundBlur.material.SetFloat("_Blur", Mathf.Lerp(gf, 0f, 0.2f));
