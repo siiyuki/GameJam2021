@@ -13,7 +13,7 @@ public class Move : MonoBehaviour
    
     bool jump = false;
 
-    private int MaxJump = 1;
+    private int MaxJump = 2;
     AudioSource JumpSE;
 
     
@@ -29,36 +29,25 @@ public class Move : MonoBehaviour
 
     void Start()
     {
-<<<<<<< HEAD
-        rb2d = GetComponent<Rigidbody2D>();
-        JumpSE = GetComponent<AudioSource>();
-        
-
-=======
         rb2d = GetComponent<Rigidbody>();
+        JumpSE = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
->>>>>>> 83398876c9bbb21b5d77fcafde0cb168965e5674
     }
 
     void Update()
     {
         if(Input.GetKeyDown(UP))
         {
-            if(jumpcount<=MaxJump)
+            if(jumpcount <= MaxJump)
             {
                 animator.SetBool("Jump", true);
                 rb2d.AddForce(Vector2.up * 350f);
                 jump = true;
-<<<<<<< HEAD
-                
                 
                 jumpcount++;
                 JumpSE.Play();
-
-=======
->>>>>>> 83398876c9bbb21b5d77fcafde0cb168965e5674
-
-                if(jumpcount > 0)
+                
+                if(jumpcount > 1)
                 {
                     Jump_Sec.SetActive(true);
 
