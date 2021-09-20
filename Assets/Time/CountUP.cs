@@ -6,7 +6,7 @@ public class CountUP : MonoBehaviour
 {
     // Start is called before the first frame update
     //　トータル時間
-    public float totalTime;
+    public static float totalTime;
     //　制限時間（分）
     [SerializeField]
     private int minute;

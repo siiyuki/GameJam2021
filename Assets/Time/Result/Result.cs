@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Result : MonoBehaviour
 {
-    public CountUP result;
     public int count = 0;
     public int ShowObject = 3;
     public float WaitTime = 1;
@@ -16,7 +15,7 @@ public class Result : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time = result.totalTime;
+        Time = CountUP.totalTime;
         Debug.Log(Time);
         Invoke("Text", WaitTime);
 

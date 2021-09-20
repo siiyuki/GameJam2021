@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class judge : MonoBehaviour
 {
+    public GameObject result;
     public float GameOverHeight = -10f;
 
     private GameObject player;
@@ -19,7 +20,8 @@ public class judge : MonoBehaviour
             var pos = player.transform.position.y;
             if (pos < GameOverHeight)
             {
-                Debug.Log("GameOver");
+                var s = Instantiate(result);
+                s.transform.position = Vector3.zero;
                 Destroy(player);
             }
         }
