@@ -15,12 +15,14 @@ public class Move : MonoBehaviour
 
     private int MaxJump = 1;
 
-
+    //アニメーターと二段ジャンプ用の子オブジェクトの宣言
+    Animator animator;
+    public GameObject Jump_Sec;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,11 +32,19 @@ public class Move : MonoBehaviour
         {
             if(jumpcount<=MaxJump)
             {
-
+                animator.SetBool("Jump", true);
                 rb2d.AddForce(Vector2.up * 350f);
                 jump = true;
                 
                 
+                if(jumpcount > 0)
+                {
+                    Jump_Sec.SetActive(true);
+
+                    Invoke("Second_Jump_Effect_OFF", 1);
+                }
+
+
                 jumpcount++;
 
             }
@@ -46,11 +56,15 @@ public class Move : MonoBehaviour
         //横移動
         else if (Input.GetKey(KeyCode.RightArrow))
         {
+            animator.SetBool("Right", true);
+            animator.SetBool("Walk", true);
             direction = 1f;
         }
 
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
+            animator.SetBool("Right", false);
+            animator.SetBool("Walk", true);
             direction = -1f;
 
         }
@@ -77,6 +91,13 @@ public class Move : MonoBehaviour
         }
 
 
+
+        //止まっているとき
+        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            animator.SetBool("Walk", false);
+        }
+
         rb2d.velocity = new Vector2(scroll * direction, rb2d.velocity.y);
 
 
@@ -88,6 +109,13 @@ public class Move : MonoBehaviour
     {
         jump = false;
         jumpcount = 0;
+        animator.SetBool("Jump", false);
+    }
+
+
+    void Second_Jump_Effect_OFF()
+    {
+        Jump_Sec.SetActive(false);
     }
 
 }
