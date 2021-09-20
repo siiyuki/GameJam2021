@@ -15,53 +15,47 @@ public class Move : MonoBehaviour
 
     private int MaxJump = 1;
 
+    public KeyCode UP;
+    public KeyCode Right;
+    public KeyCode Left;
+    public KeyCode Down;
+
     //アニメーターと二段ジャンプ用の子オブジェクトの宣言
     Animator animator;
     public GameObject Jump_Sec;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(Input.GetKeyDown(UP))
         {
             if(jumpcount<=MaxJump)
             {
                 animator.SetBool("Jump", true);
                 rb2d.AddForce(Vector2.up * 350f);
                 jump = true;
-                
-                
+
                 if(jumpcount > 0)
                 {
                     Jump_Sec.SetActive(true);
 
                     Invoke("Second_Jump_Effect_OFF", 1);
                 }
-
-
                 jumpcount++;
-
             }
-           
-
         }
-
-
-        //横移動
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(Right))//横移動
         {
             animator.SetBool("Right", true);
             animator.SetBool("Walk", true);
             direction = 1f;
         }
-
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(Left))
         {
             animator.SetBool("Right", false);
             animator.SetBool("Walk", true);
@@ -69,41 +63,24 @@ public class Move : MonoBehaviour
 
         }
 
-
-
-
-
         //着地移動（下移動）
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(Down))
         {
             rb2d.AddForce(Vector2.down * 5.0f);
         }
-
-
-
-        
-      
-
         else
         {
             direction = 0f;
-
         }
 
-
-
         //止まっているとき
-        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+        if (Input.GetKeyUp(Right) || Input.GetKeyUp(Left))
         {
             animator.SetBool("Walk", false);
         }
 
         rb2d.velocity = new Vector2(scroll * direction, rb2d.velocity.y);
-
-
-
     }
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -112,10 +89,8 @@ public class Move : MonoBehaviour
         animator.SetBool("Jump", false);
     }
 
-
     void Second_Jump_Effect_OFF()
     {
         Jump_Sec.SetActive(false);
     }
-
 }

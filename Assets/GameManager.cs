@@ -41,5 +41,10 @@ public class GameManager : MonoBehaviour
         var l = GameObject.Find("Leveler").GetComponent<ChangeLevel>();
         l.SpawnIntervalLevelRate = レベラー目標レベル値;
         l.ObjectDragLevelRate = レベラー目標抗力値;
+        var m = GameObject.Find("GamePlayerObject").GetComponent<Move>();
+        m.UP = 操作キージャンプ;
+        m.Right = 操作キー右;
+        m.Left = 操作キー左;
+        m.Down = 操作キー下;
     }
 }
