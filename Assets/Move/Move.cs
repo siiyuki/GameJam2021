@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    Rigidbody2D rb2d;
+    Rigidbody rb2d;
     public float scroll = 10f;
     public float flap = 1000f;
     float direction = 0f;
@@ -21,7 +21,7 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 
@@ -105,7 +105,7 @@ public class Move : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         jump = false;
         jumpcount = 0;

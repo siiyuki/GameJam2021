@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static float LevelUpCycle = 30;
+    public static float LevelUpCycle = 20;
     public static float BrakeGroundTime = 8;
     public static float TimerStartTime = 1;
     public static float SpawnerWidth = 4;
