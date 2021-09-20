@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static float LevelUpCycle = 20;
-    public static float BrakeGroundTime = 8;
-    public static float TimerStartTime = 1;
-    public static float SpawnerWidth = 4;
-    public static float SpawnInterval = 2.5f;
-    public static float ObjectDrag = 8;
-    public static float DestroyHeight = 15;
-    public static float ObjectMass = 100;
-    public static float ObjectAngularDrag = 0.05f;
-    public static float SpawnerStartTime = 0;
-    public static bool SpawnRotateX = false;
-    public static bool SpawnRotateY = false;
-    public static bool SpawnRotateZ = true;
-    public static float SpawnIntervalLevelRate = 120;
-    public static float ObjectDragLevelRate = 100;
-    public static KeyCode Up = KeyCode.Space;
-    public static KeyCode Right = KeyCode.D;
-    public static KeyCode Down = KeyCode.S;
-    public static KeyCode Left = KeyCode.A;
+    public int StartCountdown = 4;
+    public int StartCountDownDisplayMax = 3;
+    public float LevelUpCycle = 20;
+    public float SpawnerWidth = 4;
+    public float SpawnInterval = 2.5f;
+    public float ObjectDrag = 8;
+    public float DestroyHeight = 15;
+    public float ObjectMass = 100;
+    public float ObjectAngularDrag = 0.05f;
+    public bool SpawnRotateX = false;
+    public bool SpawnRotateY = false;
+    public bool SpawnRotateZ = true;
+    public float SpawnIntervalLevelRate = 120;
+    public float ObjectDragLevelRate = 100;
+    public KeyCode Up = KeyCode.Space;
+    public KeyCode Right = KeyCode.D;
+    public KeyCode Down = KeyCode.S;
+    public KeyCode Left = KeyCode.A;
 
     private void Awake()
     {
-        GameObject.Find("StartBase").GetComponent<StartBase>().brakeTime = BrakeGroundTime;
+        var s = GameObject.Find("Starter").GetComponent<Starter>();
+        s.CountDown = StartCountdown;
+        s.ShowCountMax = StartCountDownDisplayMax;
         var tc = GameObject.Find("TimeCanvas").GetComponent<CountUP>();
         tc.Cycle = LevelUpCycle;
-        tc.StartTime = TimerStartTime;
         var os = GameObject.Find("ObjectSpawner").GetComponent<ObjectSpawner>();
         os.MaxWidth = SpawnerWidth;
         os.SpawnInterval = SpawnInterval;
@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
         os.ObjectMass = ObjectMass;
         os.ObjectDrag = ObjectDrag;
         os.ObjectAngularDrag = ObjectAngularDrag;
-        os.StartTime = SpawnerStartTime;
         os.RotateX = SpawnRotateX;
         os.RotateY = SpawnRotateY;
         os.RotateZ = SpawnRotateZ;
