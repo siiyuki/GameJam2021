@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class StartBase : MonoBehaviour
 {
-    public float brakeTime;
-
     private float time;
 
     private bool Flug = true;
@@ -17,12 +15,12 @@ public class StartBase : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time > brakeTime && Flug)
+        if (time > GameManager.BrakeGroundTime && Flug)
         {
             gameObject.AddComponent<Rigidbody>();
             Flug = false;
         }
-        if (time > brakeTime + 3f)
+        if (time > GameManager.BrakeGroundTime + 3f)
         {
             Destroy(gameObject);
         }
