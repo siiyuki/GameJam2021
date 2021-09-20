@@ -14,12 +14,17 @@ public class Move : MonoBehaviour
     bool jump = false;
 
     private int MaxJump = 1;
+    AudioSource JumpSE;
+
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        JumpSE = GetComponent<AudioSource>();
+        
 
     }
 
@@ -36,6 +41,8 @@ public class Move : MonoBehaviour
                 
                 
                 jumpcount++;
+                JumpSE.Play();
+
 
             }
            
@@ -47,11 +54,15 @@ public class Move : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             direction = 1f;
+            
+            
+
         }
 
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             direction = -1f;
+           
 
         }
 
