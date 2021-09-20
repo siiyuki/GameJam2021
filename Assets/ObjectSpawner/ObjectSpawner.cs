@@ -43,6 +43,11 @@ public class ObjectSpawner : MonoBehaviour
         r.mass = ObjectMass;
         r.drag = ObjectDrag;
         r.angularDrag = ObjectAngularDrag;
+        var rc = RigidbodyConstraints.FreezePositionZ;
+        if (!RotateX) rc |= RigidbodyConstraints.FreezeRotationX;
+        if (!RotateY) rc |= RigidbodyConstraints.FreezeRotationY;
+        if (!RotateZ) rc |= RigidbodyConstraints.FreezeRotationZ;
+        r.constraints = rc;
         g.transform.position = new Vector2(x, transform.position.y);
         g.transform.eulerAngles = new Vector3(
             RotateX ? angle.x : 0,
