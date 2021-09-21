@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ButtonSelect : MonoBehaviour
 {
     Button FirstSelectButton;
+    
    
 
     // Start is called before the first frame update
@@ -15,11 +16,17 @@ public class ButtonSelect : MonoBehaviour
         FirstSelectButton = GameObject.Find("Canvas/ButtonRan/StartButton").GetComponent<Button>();
 
         FirstSelectButton.Select();
+
+       
     }
 
     // Update is called once per frame
     public void OnClickStartButton()
     {
+       
+
         SceneManager.LoadScene("GameScene");
+
+        
     }
 }
