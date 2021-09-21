@@ -8,7 +8,9 @@ public class Move : MonoBehaviour
     public float scroll = 10f;
     public float flap = 1000f;
     float direction = 0f;
-    
+
+    public Jump_hantei J_hantei;//着地判定
+
     private int jumpcount = 0;
    
     bool jump = false;
@@ -22,14 +24,14 @@ public class Move : MonoBehaviour
     public KeyCode Down = KeyCode.S;
 
     //アニメーターと二段ジャンプ用の子オブジェクトの宣言
-    Animator animator;
+    Animator animator;//アニメーション用
     public GameObject Jump_Sec;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody>();
         JumpSE = GetComponent<AudioSource>();
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();//アニメーション用
     }
 
     void Update()
@@ -39,6 +41,7 @@ public class Move : MonoBehaviour
         {
             if(jumpcount <= MaxJump)
             {
+                J_hantei.isGround = false;//着地判定
                 animator.SetBool("Jump", true);
                 rb2d.AddForce(Vector2.up * 350f);
                 jump = true;
@@ -46,19 +49,20 @@ public class Move : MonoBehaviour
                 jumpcount++;
                 JumpSE.Play();
                 
-                if(jumpcount > 1)
+                if(jumpcount > 1)//アニメーション用
                 {
                     Jump_Sec.SetActive(true);
 
                     Invoke("Second_Jump_Effect_OFF", 1);
                 }
                 jumpcount++;
+               
             }
         }
         else if (Get.Key(Right))//横移動
         {
-            animator.SetBool("Right", true);
-            animator.SetBool("Walk", true);
+            animator.SetBool("Right", true);//アニメーション用
+            animator.SetBool("Walk", true);//アニメーション用
             direction = 1f;
             
             
@@ -66,8 +70,8 @@ public class Move : MonoBehaviour
         }
         else if (Get.Key(Left))
         {
-            animator.SetBool("Right", false);
-            animator.SetBool("Walk", true);
+            animator.SetBool("Right", false);//アニメーション用
+            animator.SetBool("Walk", true);//アニメーション用
             direction = -1f;
            
 
@@ -86,20 +90,31 @@ public class Move : MonoBehaviour
         //止まっているとき
         if (Get.KeyUp(Right) || Get.KeyUp(Left))
         {
-            animator.SetBool("Walk", false);
+            animator.SetBool("Walk", false);//アニメーション用
         }
 
         rb2d.velocity = new Vector2(scroll * direction, rb2d.velocity.y);
-    }
 
+
+        if(J_hantei.isGround == true)
+        {
+            jump = false;
+            jumpcount = 0;
+            animator.SetBool("Jump", false);//アニメーション用
+        }
+
+    }
+    //着地判定改善のためコメント化
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         jump = false;
         jumpcount = 0;
-        animator.SetBool("Jump", false);
+        animator.SetBool("Jump", false);//アニメーション用
     }
+    */
 
-    void Second_Jump_Effect_OFF()
+    void Second_Jump_Effect_OFF()//アニメーション用
     {
         Jump_Sec.SetActive(false);
     }
