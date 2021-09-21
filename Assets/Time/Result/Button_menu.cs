@@ -18,6 +18,6 @@ public class Button_menu : MonoBehaviour
     }
     public void OnClick()
     {
-        SceneManager.LoadScene("");//ここにシーン名
+        SceneManager.LoadScene("Menu");//ここにシーン名
     }
 }

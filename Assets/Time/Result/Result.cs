@@ -54,7 +54,7 @@ public class Result : MonoBehaviour
             TIME.SetActive(true);
             SetAnimartion(TIME, overalfa, 0.05f);
         }
-        else if ((WaitTime * 5f) < animartionTime && animartionTime < (WaitTime * 6f))
+        else if ((WaitTime * 4f) < animartionTime && animartionTime < (WaitTime * 5f))
         {
             Button1.SetActive(true);
             SetAnimartion(Button1, overalfa, 0f);
