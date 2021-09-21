@@ -32,5 +32,6 @@ public class ChangeLevel : MonoBehaviour
         g.GetComponent<Leveler>().Level = (++NowLevel).ToString();
         g.transform.parent = transform;
         g.transform.localPosition = Vector3.zero;
+        GameObject.Find("background").GetComponent<GroundChage>().Switch();
     }
 }
