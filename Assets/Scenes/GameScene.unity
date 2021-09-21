@@ -409,7 +409,7 @@ MonoBehaviour:
   StartCountDownDisplayMax: 3
   LevelUpCycle: 20
   SpawnerWidth: 4
-  SpawnInterval: 2.5
+  SpawnInterval: 3
   ObjectDrag: 8
   DestroyHeight: 15
   ObjectMass: 100
