@@ -13,6 +13,8 @@ public class Result : MonoBehaviour
     public GameObject GAMEOVER;
     public GameObject YOURTIME;
     public GameObject TIME;
+    public GameObject Button1;
+    public GameObject Button2;
 
     private Image background;
     private float animartionTime = 0;
@@ -51,6 +53,13 @@ public class Result : MonoBehaviour
         {
             TIME.SetActive(true);
             SetAnimartion(TIME, overalfa, 0.05f);
+        }
+        else if ((WaitTime * 5f) < animartionTime && animartionTime < (WaitTime * 6f))
+        {
+            Button1.SetActive(true);
+            SetAnimartion(Button1, overalfa, 0f);
+            Button2.SetActive(true);
+            SetAnimartion(Button2, overalfa, 0f);
         }
     }
 
