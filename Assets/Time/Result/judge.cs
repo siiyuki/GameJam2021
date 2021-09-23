@@ -20,7 +20,7 @@ public class judge : MonoBehaviour
             var pos = player.transform.position.y;
             if (pos < GameOverHeight)
             {
-                
+                result.GetComponent<Result>().Time = CountUP.totalTime;
                 result.transform.position = Vector3.zero + new Vector3(0,0,-5f);
                 result.GetComponent<Result>().StartFlug = true;
                 Destroy(player);

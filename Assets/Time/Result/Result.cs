@@ -24,7 +24,6 @@ public class Result : MonoBehaviour
     private float overalfa = 1f;
     void Start()
     {
-        Time = CountUP.totalTime;
         Debug.Log(Time);
         //Invoke("Text", WaitTime);
 
