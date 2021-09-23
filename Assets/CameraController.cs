@@ -3,14 +3,8 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
-
     public float x_aspect = 9.0f;
     public float y_aspect = 16.0f;
-
-    void Awake()
-    {
-
-    }
 
     private void Update()
     {
