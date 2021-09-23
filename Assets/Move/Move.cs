@@ -26,7 +26,7 @@ public class Move : MonoBehaviour
     //アニメーターと二段ジャンプ用の子オブジェクトの宣言
     Animator animator;//アニメーション用
     public GameObject Jump_Sec;
-
+    public int leavecount=0;
     void Start()
     {
         rb2d = GetComponent<Rigidbody>();
@@ -39,7 +39,7 @@ public class Move : MonoBehaviour
         
         if(Get.KeyDown(UP))
         {
-            if(jumpcount <= MaxJump)
+            if(jumpcount < MaxJump)
             {
                 J_hantei.isGround = false;//着地判定
                 animator.SetBool("Jump", true);
@@ -47,15 +47,20 @@ public class Move : MonoBehaviour
                 jump = true;
                 
                 jumpcount++;
+                if(leavecount==0 && J_hantei.leave == true)
+                {
+                    jumpcount++;
+                    leavecount++;
+                }
                 JumpSE.Play();
-                
                 if(jumpcount > 1)//アニメーション用
                 {
                     Jump_Sec.SetActive(true);
 
                     Invoke("Second_Jump_Effect_OFF", 1);
                 }
-                jumpcount++;
+                
+                //jumpcount++;
                
             }
         }
@@ -100,6 +105,7 @@ public class Move : MonoBehaviour
         {
             jump = false;
             jumpcount = 0;
+            leavecount = 0;
             animator.SetBool("Jump", false);//アニメーション用
         }
 

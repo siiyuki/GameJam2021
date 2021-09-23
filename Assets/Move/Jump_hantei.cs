@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Jump_hantei : MonoBehaviour
 {
-
+    public bool leave = false;
     public bool isGround = true;
+    public Move Move;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,15 @@ public class Jump_hantei : MonoBehaviour
         if (collision.tag != "player")
         {
             isGround = true;
+            leave = false;
+        }
+    }
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.tag != "player")
+        {
+            //isGround = true;
+            leave = true;
 
         }
     }
