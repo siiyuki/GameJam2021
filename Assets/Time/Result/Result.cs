@@ -16,6 +16,8 @@ public class Result : MonoBehaviour
     public GameObject Button1;
     public GameObject Button2;
 
+    public bool StartFlug = false;
+
     private Image background;
     private float animartionTime = 0;
     private float alfa = 0.5f;
@@ -35,31 +37,34 @@ public class Result : MonoBehaviour
 
     void Update()
     {
-        background.color = SetColor(background.color.a, alfa, 0.05f);
+        if (StartFlug)
+        {
+            background.color = SetColor(background.color.a, alfa, 0.05f);
 
-        animartionTime += UnityEngine.Time.deltaTime;
+            animartionTime += UnityEngine.Time.deltaTime;
 
-        if (WaitTime < animartionTime && animartionTime < (WaitTime * 2f))
-        {
-            GAMEOVER.SetActive(true);
-            SetAnimartion(GAMEOVER, overalfa, 0.05f);
-        }
-        else if ((WaitTime * 2f) < animartionTime && animartionTime < (WaitTime * 3f))
-        {
-            YOURTIME.SetActive(true);
-            SetAnimartion(YOURTIME, overalfa, 0.05f);
-        }
-        else if((WaitTime * 3f) < animartionTime && animartionTime < (WaitTime * 4f))
-        {
-            TIME.SetActive(true);
-            SetAnimartion(TIME, overalfa, 0.05f);
-        }
-        else if ((WaitTime * 4f) < animartionTime && animartionTime < (WaitTime * 5f))
-        {
-            Button1.SetActive(true);
-            SetAnimartion(Button1, overalfa, 0f);
-            Button2.SetActive(true);
-            SetAnimartion(Button2, overalfa, 0f);
+            if (WaitTime < animartionTime && animartionTime < (WaitTime * 2f))
+            {
+                GAMEOVER.SetActive(true);
+                SetAnimartion(GAMEOVER, overalfa, 0.05f);
+            }
+            else if ((WaitTime * 2f) < animartionTime && animartionTime < (WaitTime * 3f))
+            {
+                YOURTIME.SetActive(true);
+                SetAnimartion(YOURTIME, overalfa, 0.05f);
+            }
+            else if ((WaitTime * 3f) < animartionTime && animartionTime < (WaitTime * 4f))
+            {
+                TIME.SetActive(true);
+                SetAnimartion(TIME, overalfa, 0.05f);
+            }
+            else if ((WaitTime * 4f) < animartionTime && animartionTime < (WaitTime * 5f))
+            {
+                Button1.SetActive(true);
+                SetAnimartion(Button1, overalfa, 0f);
+                Button2.SetActive(true);
+                SetAnimartion(Button2, overalfa, 0f);
+            }
         }
     }
 
