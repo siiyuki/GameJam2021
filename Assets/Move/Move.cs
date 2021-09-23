@@ -43,7 +43,7 @@ public class Move : MonoBehaviour
             {
                 J_hantei.isGround = false;//’…’n”»’è
                 animator.SetBool("Jump", true);
-                rb2d.AddForce(Vector2.up * 350f);
+                rb2d.AddForce(Vector2.up * 280f);
                 jump = true;
                 
                 jumpcount++;
